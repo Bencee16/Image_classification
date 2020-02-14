@@ -49,9 +49,6 @@ class ConvNet(nn.Module):
     self.avg_pool = nn.AvgPool2d(kernel_size=1, stride=1, padding=0)
     self.linear = nn.Linear(512, n_classes)
 
-    ########################
-    # END OF YOUR CODE    #
-    #######################
 
   def forward(self, x):
     """
@@ -63,13 +60,8 @@ class ConvNet(nn.Module):
     Returns:
       out: outputs of the network
     
-    TODO:
-    Implement forward pass of the network.
     """
 
-    ########################
-    # PUT YOUR CODE HERE  #
-    #######################
     x = F.max_pool2d(F.relu(self.batch_norm1(self.conv1(x))), 3, stride=2, padding=1)
     x = F.max_pool2d(F.relu(self.batch_norm2(self.conv2(x))), 3, stride=2, padding=1)
     x = F.max_pool2d(F.relu(self.batch_norm3_b(self.conv3_b(F.relu(self.batch_norm3_a(self.conv3_a(x)))))), 3, stride=2, padding=1)
@@ -77,9 +69,5 @@ class ConvNet(nn.Module):
     x = F.max_pool2d(F.relu(self.batch_norm5_b(self.conv5_b(F.relu(self.batch_norm5_a(self.conv5_a(x)))))), 3, stride=2, padding=1)
     x = self.avg_pool(x).view(-1,512)
     out = self.linear(x)
-
-    ########################
-    # END OF YOUR CODE    #
-    #######################
 
     return out

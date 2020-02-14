@@ -43,13 +43,7 @@ def accuracy(predictions, targets):
     accuracy: scalar float, the accuracy of predictions,
               i.e. the average correct predictions over the whole batch
   
-  TODO:
-  Implement accuracy computation.
   """
-
-  ########################
-  # PUT YOUR CODE HERE  #
-  #######################
 
   num_inputs = predictions.shape[0]
   pred_idx  = np.argmax(predictions, axis=1)
@@ -58,10 +52,6 @@ def accuracy(predictions, targets):
   accuracy = sum(pred_idx==label_idx)/num_inputs
 
 
-  ########################
-  # END OF YOUR CODE    #
-  #######################
-
   return accuracy
 
 def train():
@@ -69,17 +59,10 @@ def train():
   """
   Performs training and evaluation of ConvNet model. 
 
-  TODO:
-  Implement training and evaluation of ConvNet model. Evaluate your model on the whole test set each eval_freq iterations.
   """
 
-  ### DO NOT CHANGE SEEDS!
   # Set the random seeds for reproducibility
   np.random.seed(42)
-
-  ########################
-  # PUT YOUR CODE HERE  #
-  #######################
 
   cifar10 = cifar10_utils.get_cifar10('cifar10/cifar-10-batches-py')
   myConvNet = ConvNet(3, 10)
@@ -149,12 +132,6 @@ def plot_results(accuracies, loss_curve):
   plt.plot([j for j in range(0, FLAGS.max_steps + 1, FLAGS.eval_freq)], loss_curve['train'], 'r', label='train_loss')
   plt.legend()
   plt.show()
-
-
-  ########################
-  # END OF YOUR CODE    #
-  #######################
-
 
 
 def print_flags():

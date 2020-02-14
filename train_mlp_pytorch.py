@@ -42,23 +42,13 @@ def accuracy(predictions, targets):
   Returns:
     accuracy: scalar float, the accuracy of predictions,cd
               i.e. the average correct predictions over the whole batch
-  
-  TODO:
-  Implement accuracy computation.
   """
 
-  ########################
-  # PUT YOUR CODE HERE  #
-  #######################
   num_inputs = predictions.shape[0]
   pred_idx  = np.argmax(predictions, axis=1)
   label_idx = np.argmax(targets, axis=1)
 
   accuracy = sum(pred_idx==label_idx)/num_inputs
-
-  ########################
-  # END OF YOUR CODE    #
-  #######################
 
   return accuracy
 
@@ -71,7 +61,6 @@ def train():
   Implement training and evaluation of MLP model. Evaluate your model on the whole test set each eval_freq iterations.
   """
 
-  ### DO NOT CHANGE SEEDS!
   # Set the random seeds for reproducibility
   np.random.seed(42)
 
@@ -83,9 +72,6 @@ def train():
   else:
     dnn_hidden_units = []
 
-  ########################
-  # PUT YOUR CODE HERE  #
-  #######################
   cifar10 = cifar10_utils.get_cifar10('cifar10/cifar-10-batches-py')
   x, y = cifar10['train'].next_batch(FLAGS.batch_size)
   num_inputs = np.prod(x.shape[1:])
@@ -165,10 +151,6 @@ def plot_results(accuracies, loss_curve):
   plt.legend()
   plt.show()
 
-
-  ########################
-  # END OF YOUR CODE    #
-  #######################
 
 def print_flags():
   """

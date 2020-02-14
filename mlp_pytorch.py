@@ -28,15 +28,10 @@ class MLP(nn.Module):
       n_classes: number of classes of the classification problem.
                  This number is required in order to specify the
                  output dimensions of the MLP
-    
-    TODO:
-    Implement initialization of the network.
+
     """
 
-    ########################
-    # PUT YOUR CODE HERE  #
-    #######################
-    super(MLP,self).__init__()
+    super(MLP, self).__init__()
 
     self.num_layers = len(n_hidden)+1
 
@@ -48,10 +43,6 @@ class MLP(nn.Module):
 
 
 
-    ########################
-    # END OF YOUR CODE    #
-    #######################
-
   def forward(self, x):
     """
     Performs forward pass of the input. Here an input tensor x is transformed through 
@@ -61,21 +52,13 @@ class MLP(nn.Module):
       x: input to the network
     Returns:
       out: outputs of the network
-    
-    TODO:
-    Implement forward pass of the network.
+
     """
 
-    ########################
-    # PUT YOUR CODE HERE  #
-    #######################
     for i in range(self.num_layers-1):
       x = F.relu(self.hidden[i](x))
 
     out = self.last_linear(x)
 
-    ########################
-    # END OF YOUR CODE    #
-    #######################
     return out
 
