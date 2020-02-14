@@ -24,14 +24,8 @@ class ConvNet(nn.Module):
       n_channels: number of input channels
       n_classes: number of classes of the classification problem
                  
-    
-    TODO:
-    Implement initialization of the network.
     """
 
-    ########################
-    # PUT YOUR CODE HERE  #
-    #######################
     super(ConvNet, self).__init__()
     self.conv1 = nn.Conv2d(in_channels=n_channels, out_channels=64, kernel_size=3, stride=1, padding=1)
     self.batch_norm1 = nn.BatchNorm2d(64)
